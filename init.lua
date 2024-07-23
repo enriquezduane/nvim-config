@@ -2,8 +2,11 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- Set default directory
-vim.cmd.cd("~/Dev")
+-- Set default directory if it exists
+local default_dir = "~/Dev"
+if vim.fn.isdirectory(vim.fn.expand(default_dir)) == 1 then
+	vim.cmd.cd(default_dir)
+end
 
 -- Activate settings and plugins
 require("core.options")
