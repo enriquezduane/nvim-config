@@ -8,7 +8,5 @@ return {
       highlight = { enable = true },
       indent = { enable = true, disable = { "ruby" } },
     },
-    config = function(_, opts)
-    end,
   },
 }
