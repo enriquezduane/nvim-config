@@ -7,35 +7,10 @@ local function create_autocmd(event, opts)
 	vim.api.nvim_create_autocmd(event, opts)
 end
 
--- create_autocmd("BufWritePre", {
---   pattern = "*",
---   callback = function()
---     -- Save cursor position
---     local curpos = vim.api.nvim_win_get_cursor(0)
---
---     -- Remove trailing whitespace
---     vim.cmd([[%s/\s\+$//e]])
---
---     -- Remove empty lines at end of file
---     local last_line = vim.fn.line("$")
---     local last_non_blank_line = vim.fn.prevnonblank(last_line)
---     if last_non_blank_line < last_line then
---       vim.api.nvim_buf_set_lines(0, last_non_blank_line, last_line, true, {})
---     end
---
---     -- Restore cursor position
---     vim.api.nvim_win_set_cursor(0, curpos)
---   end,
---   desc = "Remove trailing whitespace and empty lines at end of file on save",
--- })
-
 create_autocmd("BufWritePre", {
 	pattern = "*",
 	callback = function()
-		-- Save cursor position
 		local curpos = vim.api.nvim_win_get_cursor(0)
-
-		-- Remove trailing whitespace
 		vim.api.nvim_exec(
 			[[
       silent! %s/\s\+$//e
@@ -43,7 +18,6 @@ create_autocmd("BufWritePre", {
 			false
 		)
 
-		-- Reduce multiple consecutive empty lines to a single empty line
 		vim.api.nvim_exec(
 			[[
       silent! g/^$/,/./-j
@@ -51,17 +25,14 @@ create_autocmd("BufWritePre", {
 			false
 		)
 
-		-- Remove empty lines at end of file
 		local last_line = vim.fn.line("$")
 		local last_non_blank_line = vim.fn.prevnonblank(last_line)
 		if last_non_blank_line < last_line then
 			vim.api.nvim_buf_set_lines(0, last_non_blank_line, last_line, true, {})
 		end
-
-		-- Restore cursor position
 		vim.api.nvim_win_set_cursor(0, curpos)
 	end,
-	desc = "Silently clean up file: remove trailing whitespace, reduce multiple empty lines, remove trailing empty lines",
+	desc = "clean up file: remove trailing whitespace, reduce multiple empty lines, remove trailing empty lines",
 })
 
 -- Return to last edit position when opening files
@@ -108,4 +79,14 @@ create_autocmd({ "BufEnter", "BufWinEnter" }, {
 		end
 	end,
 	desc = "Change to file's directory when opening",
+})
+
+-- Auto-update Lazy.nvim plugins if updates are available
+create_autocmd("VimEnter", {
+	callback = function()
+		if require("lazy.status").has_updates then
+			require("lazy").update({ show = false })
+		end
+	end,
+	desc = "Auto-update Lazy.nvim plugins if updates are available",
 })
