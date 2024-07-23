@@ -1,30 +1,30 @@
-# 🚀 My Personal Neovim Config
+# My Personal Neovim Config
 
-🌟 Sleek, fast, and functional Neovim setup
+Sleek, fast, and functional Neovim setup
 
-## ✨ Features
+## Features
 
-- 🧠 Smart autocompletion
-- 🔍 Fuzzy finding
-- 🌳 File explorer
-- 🎭 Syntax highlighting
-- 🔧 LSP support
-- 📦 Lazy plugin management
+- Smart autocompletion (cmp)
+- Fuzzy finding (Telescope)
+- File explorer (Neotree)
+- Syntax highlighting (Treesitter)
+- LSP support
+- Lazy plugin management
 
-## 🛠️ Installation
+## Installation
 
-🔒 Via SSH:
+Via SSH:
 
 ```bash
 git clone --depth 1 git@github.com:enriquezduane/nvim-config.git ~/.config/nvim
 ```
 
-🔍 Via HTTPS:
+Via HTTPS:
 
 ```bash
 git clone --depth 1 https://github.com/enriquezduane/nvim-config.git ~/.config/nvim
 ```
 
-## 🚀 Usage
+## Usage
 
-Just run `nvim` and enjoy!
+Just run `nvim` and wait for everything to be installed.
