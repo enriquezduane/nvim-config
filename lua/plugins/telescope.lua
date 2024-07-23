@@ -24,7 +24,7 @@ return {
 
 		opts = {
 			defaults = {
-				file_ignore_patterns = { "node_modules", ".git", "target", "build", "dist" },
+				file_ignore_patterns = { "node_modules", ".git", "target", "build", "dist", "venv" },
 				layout_config = {
 					horizontal = {
 						preview_width = 0.55,
