@@ -36,3 +36,6 @@ end
 if vim.g.neovide then
 	require("core.neovide").setup()
 end
+
+-- Set Custom Modules
+require("custom.run-c").setup()
