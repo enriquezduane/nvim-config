@@ -7,7 +7,7 @@ function M.setup()
 	vim.g.neovide_padding_right = 28
 	vim.g.neovide_padding_bottom = 10
 	vim.opt.linespace = 6
-	vim.cmd("colorscheme default")
+	vim.cmd("colorscheme oxocarbon")
 end
 
 return M
