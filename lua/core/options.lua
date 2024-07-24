@@ -25,6 +25,7 @@ opt.sidescrolloff = 6
 opt.guicursor = ""
 opt.shortmess:append("aSIF")
 opt.showmode = false
+vim.o.pumheight = 10
 
 -- Mouse
 opt.mouse = "a"

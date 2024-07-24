@@ -64,6 +64,23 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "path" },
 				},
+				formatting = {
+					format = function(entry, vim_item)
+						vim_item.abbr = string.sub(vim_item.abbr, 1, 30) -- Truncate to 30 characters
+						vim_item.menu = nil
+						return vim_item
+					end,
+				},
+				window = {
+					completion = cmp.config.window.bordered({
+						winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+						scrollbar = false,
+						col_offset = -3,
+						side_padding = 0,
+						max_height = 10, -- Set maximum height
+						max_width = 30, -- Set maximum width
+					}),
+				},
 			}
 		end,
 	},
