@@ -1,12 +1,16 @@
 return {
-  { -- Highlight, edit, and navigate code
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    opts = {
-      ensure_installed = { "c", "html", "lua" },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true, disable = { "ruby" } },
-    },
-  },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			local configs = require("nvim-treesitter.configs")
+			configs.setup({
+				ensure_installed = { "c", "lua", "vim", "vimdoc", "html", "javascript", "markdown", "css" },
+				auto_install = true,
+				sync_install = false,
+				highlight = { enable = true },
+				indent = { enable = true, disable = { "ruby" } },
+			})
+		end,
+	},
 }
