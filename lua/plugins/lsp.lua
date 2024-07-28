@@ -21,6 +21,7 @@ return {
 				},
 				clangd = {},
 				tsserver = {},
+				html = {},
 				-- Add other servers here, for example:
 				-- pyright = {},
 			}
