@@ -49,7 +49,6 @@ return {
 					vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
 					vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-
 					vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
 					vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
@@ -61,7 +60,6 @@ return {
 
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
